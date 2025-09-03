@@ -1,162 +1,46 @@
-<!DOCTYPE html> 
-<html lang="ko">
-  <head>
-    <meta charset="utf-8"/>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sticky Div Example</title>
+<style>
+  body {
+    height: 2000px; /* 스크롤을 위한 긴 높이 */
+    margin: 0;
+  }
+  .sticky-container {
+    background-color: lightgray;
+    padding: 20px;
+    margin-top: 50px; /* 상단 여백 */
+  }
+  .sticky-element {
+    position: sticky;
+    top: 20px; /* 뷰포트 상단에서 20px 떨어진 위치에 고정 */
+    background-color: lightblue;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid blue;
+  }
+  .content {
+    height: 1000px; /* 더 긴 콘텐츠를 위해 */
+    background-color: lightgreen;
+    padding: 20px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
 
-    <meta name="description" content="NeOntree's site"/>
-    <meta name="keywords" content="HTML, CSS, JAVASCRIPT"/>
-    <meta name="author" content="Dave Lee"/>
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    
-    <title>네온트리의 마인크래프트 갤러리</title>
-  </head>
-  <body>
-    <div class="container">
-  <div class="sticky-element">
-   이게 뭔가요
-  </div>
-  <div class="content">
-    아 이게 스크롤 되는 거?
-  
-  </div>
-  <div class="content">
-    테스트
-  </div>
-   <div class="content">
-    테스트
-   </div>
-   <div class="content">
-    테스트
-  </div>
-   <div class="content">
-    테스트
-  </div>
-   <div>
-    테스트
-  </div>
-   <div>
-    테스트
-  </div>
-   <div>
-    테스트
-  </div>
-   <div>
-    테스트
-  </div>
-    <div>
-    테스트
-  </div>
-    <div>
-    테스트
-  </div>
-    <div>
-    테스트
-  </div>
-    <div>
-    테스트
-  </div>
-    <div>
-    테스트
-  </div>
-    <div>
-    테스트
-  </div>
-    <div>
-    테스트
-  </div>
-    <div>
-    테스트
-  </div>
-    <div>
-    테스트
-  </div>
-    <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-      <div>
-    테스트
-  </div>
-
+<div class="sticky-container">
+  <div class="sticky-element">이 요소는 스티키입니다</div>
 </div>
 
+<div class="content">
+  스크롤을 내리면 스티키 요소가 뷰포트 상단에 고정됩니다. <br>
+  이것은 일반적인 콘텐츠입니다. <br>
+  ... 더 많은 콘텐츠 ...
+</div>
 
-
-  </body>
+</body>
 </html>
- 
