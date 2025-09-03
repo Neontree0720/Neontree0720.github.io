@@ -1,46 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<title>Sticky Div Example</title>
-<style>
-  body {
-    height: 2000px; /* 스크롤을 위한 긴 높이 */
-    margin: 0;
-  }
-  .sticky-container {
-    background-color: lightgray;
-    padding: 20px;
-    margin-top: 50px; /* 상단 여백 */
-  }
-  .sticky-element {
-    position: sticky;
-    top: 20px; /* 뷰포트 상단에서 20px 떨어진 위치에 고정 */
-    background-color: lightblue;
-    padding: 10px;
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    border: 1px solid blue;
-  }
-  .content {
-    height: 1000px; /* 더 긴 콘텐츠를 위해 */
-    background-color: lightgreen;
-    padding: 20px;
-    margin-top: 20px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Sticky Header 예제</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      z-index: 1000; /* 다른 요소 위에 표시되도록 */
+    }
+
+    .content {
+      height: 2000px; /* 스크롤을 위한 콘텐츠 */
+      padding: 20px;
+      background: linear-gradient(white, lightgray);
+    }
+  </style>
 </head>
 <body>
 
-<div class="sticky-container">
-  <div class="sticky-element">이 요소는 스티키입니다</div>
-</div>
+  <header>
+    📌 이건 Sticky 헤더입니다!
+  </header>
 
-<div class="content">
-  스크롤을 내리면 스티키 요소가 뷰포트 상단에 고정됩니다. <br>
-  이것은 일반적인 콘텐츠입니다. <br>
-  ... 더 많은 콘텐츠 ...
-</div>
+  <div class="content">
+    <p>스크롤해보세요. 헤더가 위에 고정됩니다.</p>
+    <p>...</p>
+  </div>
 
 </body>
 </html>
