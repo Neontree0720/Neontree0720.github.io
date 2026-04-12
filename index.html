@@ -1,48 +1,169 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sticky Header 예제</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      background-color: #1c00bb;
-      color: white;
-    
-      text-align: center;
-      z-index: 1000; /* 다른 요소 위에 표시되도록 */
-    }
-
-    .content {
-      height: 2000px; /* 스크롤을 위한 콘텐츠 */
-      padding: 20px;
-      background: rgb(255, 255, 255)
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네온트리의 사이트</title>
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico">
 </head>
 <body>
+    <style>
+        .header {
+  /* 핵심 속성 */
+  position: sticky;
+  top: 0;           /* 어디에 붙을지 결정 (상단 0 지점) */
+  
+  /* 스타일 (예시) */
+  width: 100%;
+  height: 80px;
+  background-color: #000000;
+  z-index: 1000;    /* 다른 요소보다 위에 보이도록 설정 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-bottom: 4px solid #333333;
+}
+    .header1
+    {
+        color:aqua;
+        font-weight:bold;
+        font-size: 50px;
+        display: flex;                          
+  justify-content: space-between;         
+  align-items: center;                    
+  
+  width: 100%;                            
+  padding: 0 16px;                        
+  box-sizing: border-box;
+    }
+    body
+    {
+        background-color:black;
+        font-family:"Noto Sans KR";
+    }
+    .header1 img
+    {
+        width:50px;
+    }
+    .hidden {
+  display: none;
+}
+#menu.list{
+    position: absolute;
+    top: 50px;         /* 헤더 높이에 맞춰 조절 (이미지 바로 아래) */
+    right: 0;
+}
+.github{
+    color: white;
+}
+a {
+    color: inherit;
+}
+.titleneontree{
+    
+    text-align: center;
+    background: linear-gradient(to right, #ffffff 0%, #42f6ff 100%);
+  
+  
+    -webkit-background-clip: text;
+  
+  
+    -webkit-text-fill-color: transparent;
+    font-size: 60px;
+    font-weight: bold;
+    background-clip: text;
+    
+}
+    div{
+        color: white;
+    }
+    
+    .sticky-side {
+  position: fixed;   /* 화면에 고정 */
+    right: 0;          /* 오른쪽 끝에 딱 붙임 */
+    top: 0;            /* 맨 위부터 시작 */
+    width: 200px;      /* 두께 100px */
+    height: 100vh;     /* 화면 높이(v-height) 100% 꽉 채우기 */
+    
+    background: linear-gradient(to bottom, #1c1c1c, #1c1c1c); /* 은은한 그라데이션 */
+    border-left: 1px solid #1a1a1a; /* 왼쪽 경계선 */
+    z-index: 9999;     /* 다른 내용보다 무조건 위에 보이게 */
+}
+   #buttoncalcul {
+    background-color: rgb(114, 8, 8); /* 진한 빨간색 */
+    color: white !important;         /* 버튼 글자색을 흰색으로! */
+    border: none;                    /* 테두리 없애기 */
+    padding: 10px 20px;              /* 클릭하기 좋게 크기 키우기 */
+    cursor: pointer;                 /* 마우스 올리면 손가락 모양 */
+    border-radius: 8px;              /* 모서리 부드럽게 */
+    font-weight: bold;               /* 글자 두껍게 */
+}
 
-  <header>
-   <div style="display: flex; align-items: center;">
-    <a href="https://github.com/neontree0720" target="_blank">
-  <img src="upload/New Piskel.png" alt="프사"
-       style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-right: 20px;">
+/* 마우스를 올렸을 때 살짝 밝아지게 하면 더 멋져요 */
+#buttoncalcul:hover {
+    background-color: rgb(150, 10, 10);
+}#buttoncalcul {
+    font-size: 20px !important; /* 글자 크기를 강제로 크게! */
+    line-height: normal !important; /* 줄 간격 초기화 */
+}
+
+    </style>
+    <header class="header">
+        <div class="header1">
+            <span class="headertitle">
+            네온트리의 사이트
+            </span>
+            <div id="menu">
+                
+            <img src="/menu.png">
+            
+            </div>
+            
+        </div>
+        
+        
+        
+    </header>
+    <!---- <div class="github">
+       <a href="https://github.com/Neontree0720">
+        <img src="/github_logo.png" width="30px"> 깃허브 바로가기
+        </a>
+
+    </div> !---->
+    <div class="titleneontree" style="padding: 100px 10px 400px 10px;">
+        안녕하세요, <br>
+        네온트리가 개발중인 사이트입니다.
+    </div>
+    
+    
+    <div class="titleneontree" style="padding: 0px 10px 400px 10px;">
+        엔트리에서 코딩을 시작했으며,<br>
+        2025년~2026년부터 HTML, CSS, JS 
+        <br>등의 웹사이트 개발 코딩을 배우기 시작했습니다.
+        
+    </div>
+    <div class="titleneontree" style="padding: 0px 10px 400px 10px;">
+       여기는 제가 만들고 있는 기능들입니다. 
+       <br>
+    </div>
+
+        
+    <a href="calcul.html" style="text-align: center;">
+        <button >계산기로 이동</button>
     </a>
-       <p style="margin: 0; font-size: 13px;">
-    네온트리의 마인크래프트 갤러리!
-  </header>
- <a href="https://neontree0720.github.io/image/bluesword1" target="_blank">
-  <img src="upload/pixil-frame-0 (7).png" alt="검"
-       style="width: 100px; height: 100px; object-fit: cover">
 
-<footer style="text-align: center; padding: 20px; font-size: 14px; color: gray;">
-  © 2025. neontree0720. All Rights Reserved.
-</footer>
+    
+    <header class="sticky-side">
+        <div style="padding: 100px">
+
+        </div>
+        <div style="color: white">
+            ddd
+        </div>
+    </header>
+    <script>
+       document.getElementById('menu').onclick = function() {alert("아직 개발중입니다\n만약 업데이트된다면 바로가기 등의 목적으로 사용할듯")}
+       
+       
+    </script>
 </body>
 </html>
