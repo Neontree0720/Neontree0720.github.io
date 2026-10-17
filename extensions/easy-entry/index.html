@@ -181,6 +181,59 @@
             font-size: 14px;
         }
 
+        /* 이스터에그: 67을 누르면 화면이 흔들리고 배경이 무지개로 빛나요 */
+        #egg67 { cursor: pointer; }
+        .rainbow {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0;
+            background: linear-gradient(120deg, #ff3b3b, #ff9f1a, #ffe93b, #3bff6e, #3bd8ff, #6e5ae6, #d23bff, #ff3b3b);
+            background-size: 300% 300%;
+            transition: opacity .4s;
+        }
+        body.party .feature, body.party .box {
+            background-color: rgba(32, 33, 44, .55);
+            transition: background-color .4s;
+        }
+        body.party .rainbow {
+            opacity: .8;
+            animation: rainbow-move 1.2s linear infinite, rainbow-glow .6s ease-in-out infinite alternate;
+        }
+        body.party .wrap { animation: shake .45s ease-in-out 4; }
+        body.party #egg67 {
+            display: inline-block;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 8px #fff, 0 0 18px var(--lavender);
+            animation: pop .6s ease-in-out infinite alternate;
+        }
+        @keyframes rainbow-move {
+            from { background-position: 0% 50%; }
+            to { background-position: 300% 50%; }
+        }
+        @keyframes rainbow-glow {
+            from { filter: brightness(.9) saturate(1); }
+            to { filter: brightness(1.35) saturate(1.4); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0) rotate(0); }
+            15% { transform: translate(-10px, 4px) rotate(-1deg); }
+            30% { transform: translate(9px, -5px) rotate(1deg); }
+            45% { transform: translate(-7px, -3px) rotate(-.6deg); }
+            60% { transform: translate(6px, 5px) rotate(.6deg); }
+            75% { transform: translate(-4px, 2px) rotate(-.3deg); }
+            90% { transform: translate(3px, -2px) rotate(.2deg); }
+        }
+        @keyframes pop {
+            from { transform: scale(1); }
+            to { transform: scale(1.5); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            body.party .wrap, body.party #egg67 { animation: none; }
+        }
+
         @media (max-width: 560px) {
             .hero { padding-top: 32px; gap: 20px; }
             .hero-icon { width: 88px; height: 88px; }
@@ -252,7 +305,7 @@
 
     <article class="feature">
         <h3><span class="num">5.</span>엔트리 버그 고침</h3>
-        <p>브라우저 화면 크기를 67% 이하로 줄이면 그림판 색깔 팝업의 색상, 채도, 명도 막대가 팝업 밖으로 밀려나던 엔트리 버그를 고쳤어요.</p>
+        <p>브라우저 화면 크기를 <span id="egg67">67</span>% 이하로 줄이면 그림판 색깔 팝업의 색상, 채도, 명도 막대가 팝업 밖으로 밀려나던 엔트리 버그를 고쳤어요.</p>
     </article>
 
     <h2>설치 방법</h2>
@@ -291,5 +344,19 @@
         만든 사람: <a href="https://github.com/neontree0720">네온트리</a>
     </p>
 </div>
+<div class="rainbow"></div>
+<script>
+    // 이스터에그: 67을 누르면 3초 동안 파티
+    let partyTimer;
+    document.getElementById('egg67').onclick = function () {
+        document.body.classList.remove('party');
+        void document.body.offsetWidth; // 다시 눌러도 흔들림이 처음부터 시작되게
+        document.body.classList.add('party');
+        clearTimeout(partyTimer);
+        partyTimer = setTimeout(function () {
+            document.body.classList.remove('party');
+        }, 3000);
+    };
+</script>
 </body>
 </html>
