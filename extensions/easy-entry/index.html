@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이지 엔트리 (Easy Entry)</title>
+    <meta name="description" content="엔트리를 더 쉽고 빠르게. 엔트리(playentry.org)용 비공식 크롬 확장 프로그램">
+    <link rel="icon" href="img/icon128.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #6E5AE6;
+            --purple-light: #806CF5;
+            --lavender: #ACA0F7;
+            --bg: #17191E;
+            --card: #20212C;
+            --card-border: #464078;
+            --text: #EEF0F4;
+            --text-sub: #A0A6B2;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: radial-gradient(ellipse at top, #2a2450 0%, var(--bg) 55%) no-repeat, var(--bg);
+            color: var(--text);
+            font-family: "Noto Sans KR", sans-serif;
+            line-height: 1.7;
+        }
+        a { color: inherit; }
+        .wrap {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 16px 80px;
+        }
+        .back {
+            display: inline-block;
+            margin: 24px 0 0;
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .back:hover { color: var(--text); }
+
+        /* 맨 위 */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            padding: 48px 0 40px;
+            flex-wrap: wrap;
+        }
+        .hero-icon {
+            width: 128px;
+            height: 128px;
+            flex-shrink: 0;
+        }
+        .hero-text { flex: 1; min-width: 240px; }
+        .hero h1 {
+            margin: 0;
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.25;
+        }
+        .hero h1 small {
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+        .tagline {
+            margin: 8px 0 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--lavender);
+        }
+        .meta {
+            margin: 6px 0 0;
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            margin-right: 6px;
+            border: 1px solid var(--card-border);
+            border-radius: 999px;
+            font-size: 13px;
+            color: var(--lavender);
+        }
+
+        /* 버튼 */
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 12px 22px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 1.3;
+            transition: transform .15s, filter .15s;
+        }
+        .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .btn small {
+            font-size: 12px;
+            font-weight: 400;
+            opacity: .85;
+        }
+        .btn-download {
+            background: var(--purple);
+            color: #fff;
+        }
+        .btn-store {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--card-border);
+        }
+
+        /* 기능 카드 */
+        h2 {
+            margin: 56px 0 16px;
+            font-size: 26px;
+            font-weight: 800;
+        }
+        .intro { color: var(--text-sub); margin: 0 0 8px; }
+        .feature {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .feature h3 {
+            margin: 0 0 8px;
+            font-size: 21px;
+            font-weight: 800;
+        }
+        .feature h3 .num {
+            color: var(--purple-light);
+            margin-right: 6px;
+        }
+        .feature p { margin: 0 0 10px; }
+        .feature img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin-top: 14px;
+            border-radius: 12px;
+            background: #111;
+        }
+
+        /* 설치 방법, 안내 */
+        .box {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 20px 24px;
+        }
+        .box ol, .box ul { margin: 0; padding-left: 22px; }
+        .box li { margin: 6px 0; }
+        .box h3 { margin: 0 0 8px; font-size: 18px; }
+        .box + .box { margin-top: 16px; }
+        code {
+            background: #2c2d3a;
+            padding: 1px 6px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .note {
+            margin-top: 40px;
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        @media (max-width: 560px) {
+            .hero { padding-top: 32px; gap: 20px; }
+            .hero-icon { width: 88px; height: 88px; }
+            .hero h1 { font-size: 30px; }
+            .hero h1 small { font-size: 16px; }
+            .btn { width: 100%; }
+            .feature { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <a class="back" href="../../index.html">&lt;- 네온트리의 사이트로 돌아가기</a>
+
+    <section class="hero">
+        <img class="hero-icon" src="img/icon-512.png" alt="이지 엔트리 아이콘">
+        <div class="hero-text">
+            <h1>이지 엔트리 <small>Easy Entry</small></h1>
+            <p class="tagline">엔트리를 더 쉽고 빠르게.</p>
+            <p class="meta">
+                <span class="badge">크롬 확장 프로그램</span>
+                <span class="badge">비공식</span>
+                <span class="badge">v1.1.1</span>
+            </p>
+            <div class="buttons">
+                <a class="btn btn-download" href="easy-entry-1.1.1.zip" download>
+                    확장 파일 다운로드 (v1.1.1)
+                    <small>최신 버전, 직접 설치 (zip)</small>
+                </a>
+                <a class="btn btn-store" href="https://chromewebstore.google.com/detail/%EC%9D%B4%EC%A7%80-%EC%97%94%ED%8A%B8%EB%A6%AC-easy-entry/lopicifbdklkodgaflfcinfiimenbmhk?hl=ko" target="_blank" rel="noopener">
+                    크롬 웹스토어에서 설치
+                    <small>자동 업데이트, 업데이트가 조금 느려요</small>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <p class="intro">
+        엔트리(playentry.org)를 쓰면서 불편했던 점들을 고쳐 보려고 만든 크롬 확장 프로그램이에요.
+        작품 만들기 도구와 다크모드가 들어 있고, 설치만 하면 바로 쓸 수 있어요. 기능마다 켜고 끌 수도 있어요.
+    </p>
+
+    <h2>기능</h2>
+
+    <article class="feature">
+        <h3><span class="num">1.</span>장면 시작 블록 자동 묶음</h3>
+        <p>"장면이 시작되었을 때" 블록을 꺼내면, 옆에 "시작하기 버튼을 클릭했을 때 -> (지금 장면) 시작하기" 묶음이 저절로 생겨요. 장면마다 하나씩만 만들어 줘서, 장면을 따로 테스트할 때 매번 블록을 찾지 않아도 돼요.</p>
+        <img src="img/gif-1-scene-start.gif" loading="lazy" alt="장면 시작 블록 자동 묶음: 장면 시작 블록을 꺼내면 시작하기 묶음이 저절로 생기는 모습">
+    </article>
+
+    <article class="feature">
+        <h3><span class="num">2.</span>따라그리기</h3>
+        <p>모양 그림판에 따라 그릴 사진을 깔 수 있어요. 왼쪽 도구 막대에 생긴 "사진" 도구로 배경을 불러오고, 투명도를 조절한 뒤 그 위에 따라 그리면 돼요. 배경은 그림 아래에 깔리고, 모양을 저장할 때는 들어가지 않아요. 엔트리 도구로는 배경이 움직이거나 지워지지 않아서 마음 놓고 그릴 수 있어요.</p>
+        <img src="img/gif-2-trace.gif" loading="lazy" alt="따라그리기: 그림판에 사진을 깔고 그 위에 따라 그리는 모습">
+    </article>
+
+    <article class="feature">
+        <h3><span class="num">3.</span>구부리기</h3>
+        <p>벡터 그림에 "구부리기" 도구로 점을 찍고 끝점을 끌면, 팔이나 다리처럼 부드럽게 구부러져요. 외곽선과 색칠이 함께 움직여서 모양이 그대로 유지되고, 도형을 먼저 선택하면 그 도형만 구부릴 수 있어요. "늘이고 줄이기", "방향 반대로"도 고를 수 있고, Ctrl+Z로 되돌릴 수 있어요. 점 2개로도 구부릴 수 있어요.</p>
+        <img src="img/gif-3-joint.gif" loading="lazy" alt="구부리기: 벡터 그림에 점을 찍고 끝점을 끌어 부드럽게 구부리는 모습">
+    </article>
+
+    <article class="feature">
+        <h3><span class="num">4.</span>완벽 다크모드</h3>
+        <p>메인, 커뮤니티, 작품 만들기, 작품 실행 화면까지 엔트리의 모든 화면을 어둡게 바꿔요. 엔트리의 초록색과 파란색은 보라(기본), 초록, 흰색, 회색, 남색 중 원하는 색으로 바꿀 수 있어요. 블록 색, 작품 무대, 내가 그린 그림과 사진은 그대로 둬요. 작은 버튼과 글자들까지 전부 다크모드를 적용해요.</p>
+        <p>글쓰기 화면에서는 검은 글씨와 흰 글씨만 화면에서 서로 바꿔 보여 줘요. 실제 글 색은 그대로라서 다크모드를 쓰지 않는 사람에게도 글이 원래대로 잘 보여요.</p>
+        <img src="img/gif-4-dark.gif" loading="lazy" alt="완벽 다크모드: 엔트리 화면 전체를 어둡게 바꾼 모습">
+    </article>
+
+    <article class="feature">
+        <h3><span class="num">5.</span>엔트리 버그 고침</h3>
+        <p>브라우저 화면 크기를 67% 이하로 줄이면 그림판 색깔 팝업의 색상, 채도, 명도 막대가 팝업 밖으로 밀려나던 엔트리 버그를 고쳤어요.</p>
+    </article>
+
+    <h2>설치 방법</h2>
+
+    <div class="box">
+        <h3>크롬 웹스토어 (자동 업데이트)</h3>
+        <ol>
+            <li>위의 "크롬 웹스토어에서 설치" 버튼 -> "Chrome에 추가"</li>
+        </ol>
+    </div>
+    <div class="box">
+        <h3>직접 설치 (최신 버전)</h3>
+        <ol>
+            <li>위의 "확장 파일 다운로드" 버튼으로 zip 파일 받기</li>
+            <li>zip 압축 풀기</li>
+            <li>크롬 주소창에 <code>chrome://extensions</code> 입력</li>
+            <li>오른쪽 위 "개발자 모드" 켜기</li>
+            <li>"압축해제된 확장 프로그램을 로드합니다" -> 풀린 폴더 선택</li>
+        </ol>
+    </div>
+    <p class="intro" style="margin-top:16px">
+        설치한 뒤 엔트리 페이지를 새로고침하면 바로 적용돼요. 브라우저 오른쪽 위 확장 프로그램 아이콘을 누르면 기능마다 켜고 끌 수 있어요.
+    </p>
+
+    <h2>알아 두세요</h2>
+    <div class="box">
+        <ul>
+            <li>엔트리 공식 기능이 아니라 개인이 만든 <b>비공식</b> 확장 프로그램이에요.</li>
+            <li>어떤 정보도 수집하거나 외부로 보내지 않아요. 설정은 크롬 동기화 저장소에만 저장돼요.</li>
+            <li>PC 크롬에서 쓸 수 있어요. 엔트리(playentry.org)에서만 동작해요.</li>
+        </ul>
+    </div>
+
+    <p class="note">
+        "엔트리"와 엔트리 로고는 네이버 커넥트재단의 상표예요.<br>
+        만든 사람: <a href="https://github.com/neontree0720">네온트리</a>
+    </p>
+</div>
+</body>
+</html>

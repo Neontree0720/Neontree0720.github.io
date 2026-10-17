@@ -153,6 +153,101 @@ a {
     </div>
 
     </div>
+
+    <!-- 확장 프로그램 -->
+    <style>
+        .ext-section {
+            padding: 120px 16px 120px 16px;
+            text-align: center;
+        }
+        .ext-title {
+            font-size: 40px;
+            font-weight: bold;
+            background: linear-gradient(to right, #ffffff 0%, #42f6ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 32px;
+        }
+        .ext-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .ext-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .ext-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 400px;
+            max-width: 100%;
+            padding: 16px 20px;
+            box-sizing: border-box;
+            background-color: #1c1c1c;
+            border: 2px solid #333333;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            text-align: left;
+            transition: border-color .15s, transform .15s;
+        }
+        .ext-card:hover {
+            border-color: #6E5AE6;
+            transform: translateY(-2px);
+        }
+        .ext-card img {
+            width: 64px;
+            height: 64px;
+            flex-shrink: 0;
+        }
+        .ext-name {
+            font-size: 26px;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+        .ext-name small {
+            display: block;
+            font-size: 15px;
+            font-weight: normal;
+            color: #a0a6b2;
+        }
+        .ext-store {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #464078;
+            border-radius: 14px;
+            color: #ACA0F7;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .ext-store:hover {
+            background-color: #20212C;
+        }
+    </style>
+    <div class="ext-section">
+        <div class="ext-title">제가 만든 확장 프로그램</div>
+        <div class="ext-list">
+            <div class="ext-item">
+                <a class="ext-card" href="extensions/easy-entry/index.html">
+                    <img src="extensions/easy-entry/img/icon128.png" alt="이지 엔트리 아이콘">
+                    <span class="ext-name">
+                        이지 엔트리
+                        <small>Easy Entry, 엔트리를 더 쉽고 빠르게.</small>
+                    </span>
+                </a>
+                <a class="ext-store" href="https://chromewebstore.google.com/detail/%EC%9D%B4%EC%A7%80-%EC%97%94%ED%8A%B8%EB%A6%AC-easy-entry/lopicifbdklkodgaflfcinfiimenbmhk?hl=ko" target="_blank" rel="noopener">
+                    크롬 웹스토어 버전 (업데이트가 조금 느려요)
+                </a>
+            </div>
+        </div>
+    </div>
+
     <p style="color:#676767">
         *사이트 제작자는 <a href="https://github.com/neontree0720">네온트리</a>입니다
         
