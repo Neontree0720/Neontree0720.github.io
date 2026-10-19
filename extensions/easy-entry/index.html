@@ -181,6 +181,34 @@
             font-size: 14px;
         }
 
+        .new {
+            display: inline-block;
+            margin-left: 8px;
+            padding: 1px 9px;
+            border-radius: 999px;
+            background: var(--purple);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            vertical-align: middle;
+        }
+        .promo-video {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            background: #000;
+        }
+        details.box summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+        details.box h4 {
+            margin: 14px 0 4px;
+            color: var(--lavender);
+        }
+
         /* 이스터에그: 67을 누르면 화면이 흔들리고 배경이 무지개로 빛나요 */
         #egg67 { cursor: pointer; }
         .rainbow {
@@ -256,11 +284,11 @@
             <p class="meta">
                 <span class="badge">크롬 확장 프로그램</span>
                 <span class="badge">비공식</span>
-                <span class="badge">v1.1.1</span>
+                <span class="badge">v1.2.2</span>
             </p>
             <div class="buttons">
-                <a class="btn btn-download" href="easy-entry-1.1.1.zip" download>
-                    확장 파일 다운로드 (v1.1.1)
+                <a class="btn btn-download" href="easy-entry-1.2.2.zip" download>
+                    확장 파일 다운로드 (v1.2.2)
                     <small>최신 버전, 직접 설치 (zip)</small>
                 </a>
                 <a class="btn btn-store" href="https://chromewebstore.google.com/detail/%EC%9D%B4%EC%A7%80-%EC%97%94%ED%8A%B8%EB%A6%AC-easy-entry/lopicifbdklkodgaflfcinfiimenbmhk?hl=ko" target="_blank" rel="noopener">
@@ -271,9 +299,11 @@
         </div>
     </section>
 
-    <p class="intro">
+    <video class="promo-video" src="video/easy-entry-promo-3d.mp4" poster="img/banner-1-title.png" controls muted loop playsinline preload="none"></video>
+
+    <p class="intro" style="margin-top:24px">
         엔트리(playentry.org)를 쓰면서 불편했던 점들을 고쳐 보려고 만든 크롬 확장 프로그램이에요.
-        작품 만들기 도구와 다크모드가 들어 있고, 설치만 하면 바로 쓸 수 있어요. 기능마다 켜고 끌 수도 있어요.
+        작품 만들기 도구, 다크모드, 배경음악이 들어 있고, 설치만 하면 바로 쓸 수 있어요. 기능마다 켜고 끌 수도 있어요.
     </p>
 
     <h2>기능</h2>
@@ -286,26 +316,46 @@
 
     <article class="feature">
         <h3><span class="num">2.</span>따라그리기</h3>
-        <p>모양 그림판에 따라 그릴 사진을 깔 수 있어요. 왼쪽 도구 막대에 생긴 "사진" 도구로 배경을 불러오고, 투명도를 조절한 뒤 그 위에 따라 그리면 돼요. 배경은 그림 아래에 깔리고, 모양을 저장할 때는 들어가지 않아요. 엔트리 도구로는 배경이 움직이거나 지워지지 않아서 마음 놓고 그릴 수 있어요.</p>
+        <p>모양 그림판에 따라 그릴 사진을 깔 수 있어요. 왼쪽 도구 막대에 생긴 "사진" 도구로 배경을 불러오고, 투명도를 조절한 뒤 그 위에 따라 그리면 돼요. 배경은 그림 아래에 깔리고, 모양을 저장할 때는 들어가지 않아요.</p>
         <img src="img/gif-2-trace.gif" loading="lazy" alt="따라그리기: 그림판에 사진을 깔고 그 위에 따라 그리는 모습">
     </article>
 
     <article class="feature">
         <h3><span class="num">3.</span>구부리기</h3>
-        <p>벡터 그림에 "구부리기" 도구로 점을 찍고 끝점을 끌면, 팔이나 다리처럼 부드럽게 구부러져요. 외곽선과 색칠이 함께 움직여서 모양이 그대로 유지되고, 도형을 먼저 선택하면 그 도형만 구부릴 수 있어요. "늘이고 줄이기", "방향 반대로"도 고를 수 있고, Ctrl+Z로 되돌릴 수 있어요. 점 2개로도 구부릴 수 있어요.</p>
-        <img src="img/gif-3-joint.gif" loading="lazy" alt="구부리기: 벡터 그림에 점을 찍고 끝점을 끌어 부드럽게 구부리는 모습">
+        <p>벡터 그림에 "구부리기" 도구로 점을 찍고 끝점을 끌면, 팔이나 다리처럼 부드럽게 구부러져요. 외곽선과 색칠이 함께 움직이고, 도형을 먼저 선택하면 그 도형만 구부릴 수 있어요. "늘이고 줄이기", "방향 반대로"도 고를 수 있고, Ctrl+Z로 되돌릴 수 있어요.</p>
+        <img src="img/gif-3-bend.gif" loading="lazy" alt="구부리기: 벡터 그림에 점을 찍고 끝점을 끌어 부드럽게 구부리는 모습">
     </article>
 
     <article class="feature">
         <h3><span class="num">4.</span>완벽 다크모드</h3>
-        <p>메인, 커뮤니티, 작품 만들기, 작품 실행 화면까지 엔트리의 모든 화면을 어둡게 바꿔요. 엔트리의 초록색과 파란색은 보라(기본), 초록, 흰색, 회색, 남색 중 원하는 색으로 바꿀 수 있어요. 블록 색, 작품 무대, 내가 그린 그림과 사진은 그대로 둬요. 작은 버튼과 글자들까지 전부 다크모드를 적용해요.</p>
-        <p>글쓰기 화면에서는 검은 글씨와 흰 글씨만 화면에서 서로 바꿔 보여 줘요. 실제 글 색은 그대로라서 다크모드를 쓰지 않는 사람에게도 글이 원래대로 잘 보여요.</p>
+        <p>메인, 커뮤니티, 작품 만들기, 작품 실행 화면, 글쓰기까지 엔트리의 모든 화면을 어둡게 바꿔요. 엔트리의 초록색과 파란색은 보라(기본), 초록, 흰색, 회색, 남색 중 원하는 색으로 바꿀 수 있어요. 블록 색, 작품 무대, 내가 그린 그림과 사진은 그대로 둬요.</p>
+        <p>글쓰기 화면에서는 검은 글씨와 흰 글씨만 화면에서 서로 바꿔 보여 줘요. 실제 글 색은 그대로라서 다크모드를 쓰지 않는 사람에게도 글이 잘 보여요.</p>
         <img src="img/gif-4-dark.gif" loading="lazy" alt="완벽 다크모드: 엔트리 화면 전체를 어둡게 바꾼 모습">
     </article>
 
     <article class="feature">
         <h3><span class="num">5.</span>엔트리 버그 고침</h3>
         <p>브라우저 화면 크기를 <span id="egg67">67</span>% 이하로 줄이면 그림판 색깔 팝업의 색상, 채도, 명도 막대가 팝업 밖으로 밀려나던 엔트리 버그를 고쳤어요.</p>
+        <img src="img/banner-6-bugfix.png" loading="lazy" alt="엔트리 버그 고침: 고치기 전과 이지 엔트리를 쓴 뒤의 색깔 팝업 비교">
+    </article>
+
+    <article class="feature">
+        <h3><span class="num">6.</span>편리한 코드 모음<span class="new">새 기능 1.2</span></h3>
+        <p>블록 꾸러미 맨 아래에 시그마 E 탭("이지")이 생겨요. 그 안에 "작품 강제 종료하기", "반복문 딜레이 없애기" 블록이 있어요.</p>
+        <p>작품에는 원래 엔트리 블록 그대로 저장돼서, 이지 엔트리를 쓰지 않는 사람이 열어도 작품이 똑같이 동작해요. 이지 엔트리를 쓰는 사람에게만 보라색 + 시그마 E 모양으로 보여요.</p>
+        <img src="img/banner-7-code-collection.png" loading="lazy" alt="편리한 코드 모음: 블록 꾸러미의 이지 탭에 있는 보라색 블록들">
+    </article>
+
+    <article class="feature">
+        <h3><span class="num">7.</span>배경음악<span class="new">새 기능 1.2</span></h3>
+        <p>고른 mp3를 엔트리 모든 페이지에서 틀어요. 메인에서 커뮤니티, 작품 만들기로 옮겨 다녀도 끊기지 않고 이어서 나와요. 엔트리 탭을 모두 닫으면 멈춰요. 크기는 확장 프로그램 창에서 바꿔요.</p>
+        <img src="img/banner-8-bgm.png" loading="lazy" alt="배경음악: 엔트리 페이지를 옮겨 다녀도 음악이 이어서 나오는 모습을 그린 그림">
+    </article>
+
+    <article class="feature">
+        <h3><span class="num">8.</span>엔트리 이야기 배경<span class="new">새 기능 1.2</span></h3>
+        <p>엔트리 이야기 글 목록 뒤 배경을 고른 사진으로 바꿔요. 어둡게 정도도 고를 수 있어요. 내 화면에서만 바뀌고, 다른 사람에게는 원래 배경으로 보여요.</p>
+        <img src="img/banner-9-story-bg.png" loading="lazy" alt="엔트리 이야기 배경: 원래 배경과 고른 사진으로 바꾼 배경 비교">
     </article>
 
     <h2>설치 방법</h2>
@@ -323,18 +373,52 @@
             <li>zip 압축 풀기</li>
             <li>크롬 주소창에 <code>chrome://extensions</code> 입력</li>
             <li>오른쪽 위 "개발자 모드" 켜기</li>
-            <li>"압축해제된 확장 프로그램을 로드합니다" -> 풀린 폴더 선택</li>
+            <li>"압축해제된 확장 프로그램을 로드합니다" -> 풀린 <code>easy-entry-1.2.2</code> 폴더 선택</li>
         </ol>
+        <p class="intro" style="margin:8px 0 0">zip 안의 "설치 방법.txt"에도 같은 내용이 있어요.</p>
     </div>
     <p class="intro" style="margin-top:16px">
         설치한 뒤 엔트리 페이지를 새로고침하면 바로 적용돼요. 브라우저 오른쪽 위 확장 프로그램 아이콘을 누르면 기능마다 켜고 끌 수 있어요.
+        배경음악과 엔트리 이야기 배경은 확장 프로그램 창의 "음악 고르기", "사진 고르기"를 누르면 열리는 페이지에서 파일을 골라요.
     </p>
+
+    <h2>바뀐 점</h2>
+    <details class="box">
+        <summary>버전별 바뀐 점 보기</summary>
+        <h4>1.2.2</h4>
+        <ul>
+            <li>아이콘의 시그마 E를 홍보 영상, 사진과 같은 모양으로 바꿨어요.</li>
+        </ul>
+        <h4>1.2.1 (1.2.0 포함)</h4>
+        <ul>
+            <li>편리한 코드 모음: 블록 꾸러미 맨 아래 시그마 E 탭에 "작품 강제 종료하기", "반복문 딜레이 없애기" 블록이 생겼어요.</li>
+            <li>배경음악: 고른 mp3를 엔트리 모든 페이지에서 틀어요. 페이지를 옮겨도 끊기지 않아요.</li>
+            <li>엔트리 이야기 배경: 엔트리 이야기 글 목록 뒤 배경을 고른 사진으로 바꿀 수 있어요. 내 화면에서만 바뀌어요.</li>
+        </ul>
+        <h4>1.1.1</h4>
+        <ul>
+            <li>"관절" 도구 이름을 "구부리기"로 바꿨어요. 기능은 그대로예요.</li>
+            <li>완벽 다크모드: 오브젝트 추가하기 창의 벡터 표시 아이콘 둘레에 남던 흰 네모를 없앴어요.</li>
+        </ul>
+        <h4>1.1.0</h4>
+        <ul>
+            <li>그림판 UI 버그 수정: 사이트 크기가 기본값(Ctrl+0)이 아니면 색깔 조정 팝업이 안 맞던 엔트리 버그를 고쳤어요.</li>
+            <li>완벽 다크모드: 작품 실행 화면, 커뮤니티 글쓰기 화면에도 적용돼요.</li>
+            <li>완벽 다크모드: 오브젝트 추가하기 창의 아이콘과 버튼, 색 팔레트, 팔로워 목록의 프로필 사진이 제대로 보이게 고쳤어요.</li>
+        </ul>
+        <h4>1.0.0</h4>
+        <ul>
+            <li>첫 공개: 장면 시작 블록 자동 묶음, 따라그리기, 관절(지금의 구부리기), 다크모드</li>
+        </ul>
+    </details>
 
     <h2>알아 두세요</h2>
     <div class="box">
         <ul>
             <li>엔트리 공식 기능이 아니라 개인이 만든 <b>비공식</b> 확장 프로그램이에요.</li>
-            <li>어떤 정보도 수집하거나 외부로 보내지 않아요. 설정은 크롬 동기화 저장소에만 저장돼요.</li>
+            <li>어떤 정보도 수집하거나 외부로 보내지 않아요. 설정은 크롬 동기화 저장소에, 고른 음악과 사진은 이 컴퓨터의 확장 프로그램 안에만 저장돼요.</li>
+            <li>권한: <code>storage</code>(설정, 배경 사진 저장), <code>offscreen</code>(배경음악 재생), <code>playentry.org</code>(엔트리에서만 동작)</li>
+            <li>크롬 웹스토어에는 아직 1.1.1이 공개되어 있어요. 1.2.2는 검토 중이라, 새 기능을 바로 쓰려면 직접 설치해 주세요.</li>
             <li>PC 크롬에서 쓸 수 있어요. 엔트리(playentry.org)에서만 동작해요.</li>
         </ul>
     </div>
@@ -346,6 +430,17 @@
 </div>
 <div class="rainbow"></div>
 <script>
+    // 홍보 영상은 화면에 보일 때만 소리 없이 재생
+    const promo = document.querySelector('.promo-video');
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) promo.play().catch(function () {});
+                else promo.pause();
+            });
+        }, { threshold: 0.5 }).observe(promo);
+    }
+
     // 이스터에그: 67을 누르면 3초 동안 파티
     let partyTimer;
     document.getElementById('egg67').onclick = function () {
